@@ -1,8 +1,8 @@
 
-game();
 
 
-/*Generates the computer's selection vvvvvvvvvvvvvvvvvvvvvvvvvvvv*/
+
+/*Generates the computer's selection~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 function computerPlay(){
     let result = Math.floor(Math.random()*3);
     /*Generates a random number between 0 and 2*/
@@ -18,8 +18,8 @@ function computerPlay(){
             break;
     }
 }
-/*Generates the computer's selection ^^^^^^^^^^^^^^^^^^^^^^^*/
 
+/*Plays a round~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 function round(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     if(playerSelection === computerSelection){
@@ -35,6 +35,8 @@ function round(playerSelection, computerSelection){
 
 }
 
+
+/*Main game~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 function game(){
     /*set scores to 0*/
     let playerScore = 0;
@@ -68,3 +70,4 @@ function game(){
         console.log("you've lost the tournament, sorry!")
     }
 }
+

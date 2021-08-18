@@ -1,8 +1,69 @@
 <html>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet"> 
+    
     <head>
         <title>Rock Paper Scissors</title>
-    </head>
-    <body>
         <script src="rps.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section class="scoreboard">
+            <h1 class="robot-score">Robot Score: 1</h1>
+        </section>
+        <!--------------------------------------------------------------->
+        <section class="robot-choice">
+            <a class="card" data-player="robot" data-choice="rock">
+                <h2>Rock</h2>
+                <div>
+                    <img src="rock.png">
+                </div>
+            </a>
+            <a class="card" data-player="robot" data-choice="paper">
+                <h2>Paper</h2>
+                <div>
+                    <img src="paper.png">
+                </div>
+            </a>
+            <a class="card" data-player="robot" data-choice="scissors">
+                <h2>Scissors</h2>
+                <div>
+                    <img src="scissors.png">
+                </div>
+            </a>
+        </section>
+        <!--------------------------------------------------------------->
+        <section class="button-zone">
+            <button id="start">Start</button>
+            <h2 class="score">Results go here</h2>
+            <button id="confirm">Confirm</button>
+        </section>
+        <!--------------------------------------------------------------->
+        <section class="human-choice">
+            <a class="card" data-player="human" data-choice="rock">
+                <h2>Rock</h2>
+                <div>
+                    <img src="rock.png">
+                </div>
+            </a>
+            <a class="card" data-player="human" data-choice="paper">
+                <h2>Paper</h2>
+                <div>
+                    <img src="paper.png">
+                </div>
+            </a>
+            <a class="card" data-player="human" data-choice="scissors">
+                <h2>Scissors</h2>
+                <div>
+                    <img src="scissors.png">
+                </div>
+            </a>
+        </section>
+        <!--------------------------------------------------------------->
+        <section class="scoreboard">
+            <h1 class="human-score">Your Score: 1</h1>
+        </section>
     </body>
+
 </html>

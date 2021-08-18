@@ -1,0 +1,93 @@
+
+
+body{
+    font-family: "Amatic SC";
+    background-color: rgb(8, 37, 62);
+    color: rgb(158, 158, 183);
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+.scoreboard{
+    text-align: center;
+}
+.scoreboard h1{
+    font-size: 30px;
+    margin: 5px;
+}
+.robot-choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+}
+.card{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5%;
+    background-color: rgb(33, 37, 60);
+    box-shadow: 0 6px 6px rgba(28, 20, 20, 0.23), 0 -6px 6px rgba(28, 20, 20, 0.23);
+    box-shadow: 0 10px 10px rgba(41, 227, 240, 0);
+}
+.card:hover{
+    animation-name: grow-project;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+.card h2{
+    font-size: 40px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.card div{
+    background-color: rgb(77, 77, 99);
+    margin: 0 10px 10px 10px;
+    padding: 20px;
+    border-radius: 5%;
+}
+img{
+    display: inline-block;
+    image-rendering: crisp-edges;
+    height: 20vh;
+    width: auto;
+}
+.button-zone{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#confirm{
+    margin-left: auto;
+}
+#start{
+    margin-right: auto;
+}
+.human-choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+}
+
+@keyframes grow-project {
+    0%{
+      transform: scale(1);
+      box-shadow: 0 10px 10px rgba(41, 227, 240. 0);
+    }
+    100% {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(41, 227, 240, 1);
+    }
+  }
+  @keyframes shrink-project {
+    100%{
+      transform: scale(1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 -6px 6px rgba(0,0,0,0.23);
+    }
+    0% {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.7), 0 -6px 6px rgba(0,0,0,0.23);
+    }
+  }
