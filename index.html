@@ -4,13 +4,13 @@
     
     <head>
         <title>Rock Paper Scissors</title>
-        <script src="rps.js"></script>
+        <script src="rps.js" defer></script>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <section class="scoreboard">
-            <h1 class="robot-score">Robot Score: 1</h1>
+            <h1 class="robot-score">Robot Score: 0</h1>
         </section>
         <!--------------------------------------------------------------->
         <section class="robot-choice">
@@ -35,9 +35,8 @@
         </section>
         <!--------------------------------------------------------------->
         <section class="button-zone">
-            <button id="start">Start</button>
-            <h2 class="score">Results go here</h2>
-            <button id="confirm">Confirm</button>
+            <h2 class="score">Press the start button to begin</h2>
+            <button class="startGame">Start Game</button>
         </section>
         <!--------------------------------------------------------------->
         <section class="human-choice">
@@ -62,7 +61,7 @@
         </section>
         <!--------------------------------------------------------------->
         <section class="scoreboard">
-            <h1 class="human-score">Your Score: 1</h1>
+            <h1 class="human-score">Your Score: 0</h1>
         </section>
     </body>
 

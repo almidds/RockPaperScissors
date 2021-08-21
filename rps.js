@@ -1,5 +1,5 @@
-
-
+let playerScore = 0;
+let computerScore = 0;
 
 
 /*Generates the computer's selection~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -19,55 +19,71 @@ function computerPlay(){
     }
 }
 
+
+const textbox = document.querySelector(`.score`);
+const robotbox = document.querySelector(".robot-score");
+const humanbox = document.querySelector(".human-score");
+const cards = document.querySelectorAll(`.card[data-player="human"]`);
+const startButton = document.querySelector(".startGame");
+const robotCards = document.querySelectorAll(`.card[data-player="robot"]`);
+startButton.addEventListener("click", startGame);
+
+
+
+function startGame(){
+    startButton.innerText = "Replay game";
+    textbox.innerText = "Rock, paper, or scissors?";
+    cards.forEach(card => card.addEventListener("click", getHumanSelection));
+    cards.forEach(card => card.classList.add("hoverable"));
+    playerScore = 0;
+    computerScore = 0;
+    robotbox.innerText = `Robot Score: ${computerScore}`;
+    humanbox.innerText = `Your Score: ${playerScore}`;
+    robotCards.forEach(card => card.classList.remove("selected"));
+}
+
+function getHumanSelection(e){
+    round(e.currentTarget.dataset.choice, computerPlay);
+}
+
 /*Plays a round~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 function round(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    robotCards.forEach(card => card.classList.remove("selected"));
+    const robotCard = document.querySelector(`.card[data-player="robot"][data-choice=${computerSelection}]`);
+    robotCard.classList.add("selected");
+
+
+
     if(playerSelection === computerSelection){
         /*tie condition*/
-        return("tie");
+        textbox.innerText = "It's a tie!";
     } else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper"){
         /*win condition*/
-        return("win");
+        playerScore += 1;
+        textbox.innerText = `You win! ${playerSelection} beats ${computerSelection}`;
     } else{
         /*otherwise you've lost*/
-        return("lose");
+        computerScore += 1;
+        textbox.innerText = "You lose :(";
     }
+    robotbox.innerText = `Robot Score: ${computerScore}`;
+    humanbox.innerText = `Your Score: ${playerScore}`;
 
-}
 
-
-/*Main game~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-function game(){
-    /*set scores to 0*/
-    let playerScore = 0;
-    let computerScore = 0;
-
-    /*loops over 5 round*/
-    while(playerScore < 3 && computerScore < 3){
-        playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-        computerSelection = computerPlay();
-        result = round(playerSelection, computerSelection);
-        switch(true){
-            case(result === "tie"):
-                console.log("It's a tie!");
-                break;
-            
-            case(result === "win"):
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-                playerScore += 1;
-                break;
-            
-            case(result === "lose"):
-                console.log("You lose :(");
-                computerScore += 1;
-                break;
+    if(playerScore == 3 || computerScore == 3){
+        console.log("WON GAME");
+        if(playerScore > computerScore){
+            textbox.innerText = "You've won the tournament! Congratulations!";
+        }else{
+            textbox.innerText = "you've lost the tournament, sorry!"
         }
-        console.log(`Computer score: ${computerScore}\n Your score: ${playerScore}`);
+        cards.forEach(card => card.removeEventListener("click", getHumanSelection));
+        cards.forEach(card => card.classList.remove("hoverable"));
     }
-    if(playerScore > computerScore){
-        console.log("You've won the tournament! Congratulations!");
-    }else{
-        console.log("you've lost the tournament, sorry!")
-    }
+
+
+
 }
+
 

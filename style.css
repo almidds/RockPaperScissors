@@ -31,10 +31,14 @@ body{
     box-shadow: 0 6px 6px rgba(28, 20, 20, 0.23), 0 -6px 6px rgba(28, 20, 20, 0.23);
     box-shadow: 0 10px 10px rgba(41, 227, 240, 0);
 }
-.card:hover{
+.hoverable:hover[data-player="human"]{
     animation-name: grow-project;
     animation-duration: 300ms;
     animation-fill-mode: forwards;
+}
+.selected{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgb(228, 137, 33);
 }
 .card h2{
     font-size: 40px;
@@ -47,6 +51,7 @@ body{
     padding: 20px;
     border-radius: 5%;
 }
+
 img{
     display: inline-block;
     image-rendering: crisp-edges;
@@ -55,8 +60,27 @@ img{
 }
 .button-zone{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+}
+.startGame{
+    position: absolute;
+    right: 0;
+    font-size: inherit;
+    height: 40px;
+    width: 150px;
+    margin-right: 25vw;
+    color:rgb(158, 158, 183);
+    background-color: rgb(77, 77, 99);
+    border-radius: 5%;
+    border-style: none;
+}
+.startGame:hover{
+    background-color: rgb(69, 69, 88);
+}
+.score{
+    justify-self: center;
+    align-self: center;
 }
 #confirm{
     margin-left: auto;
@@ -79,15 +103,5 @@ img{
     100% {
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(41, 227, 240, 1);
-    }
-  }
-  @keyframes shrink-project {
-    100%{
-      transform: scale(1);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 -6px 6px rgba(0,0,0,0.23);
-    }
-    0% {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.7), 0 -6px 6px rgba(0,0,0,0.23);
     }
   }
